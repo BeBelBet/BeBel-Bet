@@ -2,30 +2,37 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Palpites Futebol — App</title>
+<title>Palpites Futebol — App Profissional</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  body {margin:0; font-family:'Roboto',sans-serif; background:linear-gradient(135deg,#0f0f0f,#1f1f1f); color:#fff;}
-  #login-container{display:flex; justify-content:center; align-items:center; height:100vh;}
-  #login-box{background-color:#222; padding:40px 30px; border-radius:15px; width:90%; max-width:400px; box-shadow:0 0 20px rgba(0,255,0,0.3); text-align:center;}
-  #login-box h2{margin-bottom:20px; color:#4caf50;}
-  input{width:80%; padding:12px; margin:10px 0; border-radius:8px; border:none; font-size:16px;}
-  button{padding:12px 25px; margin-top:10px; border:none; border-radius:8px; background-color:#4caf50; color:#fff; font-size:16px; cursor:pointer;}
-  .error{color:#ff5555; margin-top:10px;}
-  #app-container{display:none; padding-bottom:50px;}
-  header{padding:20px; text-align:center; font-size:26px; background-color:#111; box-shadow:0 2px 5px #000;}
-  nav{display:flex; justify-content: space-around; background:#111; position: sticky; top:0; z-index:10;}
-  nav button{background:none; border:none; color:#bbb; font-size:16px; padding:15px; cursor:pointer;}
-  nav button.active{color:#4caf50; border-bottom:3px solid #4caf50;}
-  .tab{display:none; padding:20px;}
-  .tab.active{display:block;}
-  .match-card{background:#222; padding:15px; margin-bottom:15px; border-radius:12px; box-shadow:0 3px 8px rgba(0,255,0,0.2); display:flex; align-items:center; transition: transform 0.2s;}
-  .match-card:hover{transform:translateY(-5px);}
-  .team-logo{width:40px; height:40px; margin-right:10px; border-radius:50%; object-fit:cover;}
-  .match-info{flex:1;}
-  .teams{font-size:18px; font-weight:bold; color:#fff;}
-  .tip{color:#a0a0a0; margin-top:4px;}
-  @media(max-width:600px){.teams{font-size:16px;} nav button{font-size:14px; padding:10px;}}
+body {margin:0; font-family:'Roboto',sans-serif; background:#121212; color:#fff;}
+/* Login */
+#login-container{display:flex; justify-content:center; align-items:center; height:100vh;}
+#login-box{background-color:#222; padding:40px 30px; border-radius:15px; width:90%; max-width:400px; box-shadow:0 0 20px rgba(0,255,0,0.3); text-align:center;}
+#login-box h2{margin-bottom:20px; color:#4caf50;}
+input{width:80%; padding:12px; margin:10px 0; border-radius:8px; border:none; font-size:16px;}
+button{padding:12px 25px; margin-top:10px; border:none; border-radius:8px; background-color:#4caf50; color:#fff; font-size:16px; cursor:pointer;}
+.error{color:#ff5555; margin-top:10px;}
+/* App */
+#app-container{display:none; padding-bottom:50px;}
+header{padding:20px; text-align:center; font-size:26px; background-color:#111; box-shadow:0 2px 5px #000;}
+nav{display:flex; justify-content: space-around; background:#111; position: sticky; top:0; z-index:10;}
+nav button{background:none; border:none; color:#bbb; font-size:16px; padding:15px; cursor:pointer; transition:0.3s;}
+nav button.active{color:#4caf50; border-bottom:3px solid #4caf50;}
+.tab{display:none; padding:20px;}
+.tab.active{display:block;}
+.match-card{padding:15px; margin-bottom:15px; border-radius:12px; display:flex; align-items:center; transition: transform 0.2s;}
+.match-card:hover{transform:translateY(-5px);}
+.team-logo{width:40px; height:40px; margin-right:10px; border-radius:50%; object-fit:cover;}
+.match-info{flex:1;}
+.teams{font-size:18px; font-weight:bold;}
+.tip{margin-top:4px;}
+/* Gradientes por tipo de aposta */
+.tab1 .match-card{background:linear-gradient(90deg,#4caf50,#2e7d32);}
+.tab2 .match-card{background:linear-gradient(90deg,#2196f3,#1565c0);}
+.tab3 .match-card{background:linear-gradient(90deg,#f44336,#b71c1c);}
+.tab4 .match-card{background:linear-gradient(90deg,#ffeb3b,#fbc02d); color:#000;}
+@media(max-width:600px){.teams{font-size:16px;} nav button{font-size:14px; padding:10px;}}
 </style>
 </head>
 <body>
@@ -41,7 +48,7 @@
 </div>
 
 <div id="app-container">
-  <header>Palpites Futebol — App</header>
+  <header>Palpites Futebol — App Profissional</header>
   <nav>
     <button id="tab1-btn" class="active">+1.5 Gols</button>
     <button id="tab2-btn">Ambas Marcam</button>
@@ -49,343 +56,48 @@
     <button id="tab4-btn">Placar Exato</button>
   </nav>
 
-  <div id="tab1" class="tab active">
+  <!-- TAB +1.5 Gols -->
+  <div id="tab1" class="tab tab1 active">
+    <!-- Adicione seus 10 jogos +1.5 gols aqui -->
+  </div>
 
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Corinthians">
-      <div class="match-info">
-        <span class="teams">Corinthians vs Atlético-MG</span>
-        <span class="tip">Palpite: Over 1.5 gols</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Flamengo">
-      <div class="match-info">
-        <span class="teams">Flamengo vs Palmeiras</span>
-        <span class="tip">Palpite: Over 1.5 gols</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Cruzeiro">
-      <div class="match-info">
-        <span class="teams">Cruzeiro vs Fortaleza</span>
-        <span class="tip">Palpite: Over 1.5 gols</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Bahia">
-      <div class="match-info">
-        <span class="teams">Bahia vs Grêmio</span>
-        <span class="tip">Palpite: Over 1.5 gols</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Santos">
-      <div class="match-info">
-        <span class="teams">Santos vs Vasco</span>
-        <span class="tip">Palpite: Over 1.5 gols</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Botafogo">
-      <div class="match-info">
-        <span class="teams">Botafogo vs Ceará</span>
-        <span class="tip">Palpite: Over 1.5 gols</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Fluminense">
-      <div class="match-info">
-        <span class="teams">Fluminense vs São Paulo</span>
-        <span class="tip">Palpite: Over 1.5 gols</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Juventude">
-      <div class="match-info">
-        <span class="teams">Juventude vs Bragantino</span>
-        <span class="tip">Palpite: Over 1.5 gols</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="América-MG">
-      <div class="match-info">
-        <span class="teams">América-MG vs Atlético-GO</span>
-        <span class="tip">Palpite: Over 1.5 gols</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Coritiba">
-      <div class="match-info">
-        <span class="teams">Coritiba vs Cuiabá</span>
-        <span class="tip">Palpite: Over 1.5 gols</span>
-      </div>
-    </div>
-    </div><div id="tab2" class="tab">
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Fluminense">
-      <div class="match-info">
-        <span class="teams">Fluminense vs Vasco</span>
-        <span class="tip">Ambas Marcam</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Ceará">
-      <div class="match-info">
-        <span class="teams">Ceará vs Botafogo</span>
-        <span class="tip">Ambas Marcam</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Corinthians">
-      <div class="match-info">
-        <span class="teams">Corinthians vs Atlético-MG</span>
-        <span class="tip">Ambas Marcam</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Flamengo">
-      <div class="match-info">
-        <span class="teams">Flamengo vs Palmeiras</span>
-        <span class="tip">Ambas Marcam</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Juventude">
-      <div class="match-info">
-        <span class="teams">Juventude vs Bragantino</span>
-        <span class="tip">Ambas Marcam</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Bahia">
-      <div class="match-info">
-        <span class="teams">Bahia vs Grêmio</span>
-        <span class="tip">Ambas Marcam</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Santos">
-      <div class="match-info">
-        <span class="teams">Santos vs Vasco</span>
-        <span class="tip">Ambas Marcam</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Palmeiras">
-      <div class="match-info">
-        <span class="teams">Palmeiras vs São Paulo</span>
-        <span class="tip">Ambas Marcam</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Cruzeiro">
-      <div class="match-info">
-        <span class="teams">Cruzeiro vs Fortaleza</span>
-        <span class="tip">Ambas Marcam</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Coritiba">
-      <div class="match-info">
-        <span class="teams">Coritiba vs Cuiabá</span>
-        <span class="tip">Ambas Marcam</span>
-      </div>
-    </div>
-    </div><div id="tab3" class="tab">
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Grêmio">
-      <div class="match-info">
-        <span class="teams">Grêmio vence Bahia</span>
-        <span class="tip">Vitória Seca: Grêmio</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Palmeiras">
-      <div class="match-info">
-        <span class="teams">Palmeiras vence Flamengo</span>
-        <span class="tip">Vitória Seca: Palmeiras</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Atlético-MG">
-      <div class="match-info">
-        <span class="teams">Atlético-MG vence Corinthians</span>
-        <span class="tip">Vitória Seca: Atlético-MG</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="São Paulo">
-      <div class="match-info">
-        <span class="teams">São Paulo vence Fluminense</span>
-        <span class="tip">Vitória Seca: São Paulo</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Bragantino">
-      <div class="match-info">
-        <span class="teams">Bragantino vence Juventude</span>
-        <span class="tip">Vitória Seca: Bragantino</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Ceará">
-      <div class="match-info">
-        <span class="teams">Ceará vence Botafogo</span>
-        <span class="tip">Vitória Seca: Ceará</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Santos">
-      <div class="match-info">
-        <span class="teams">Santos vence Vasco</span>
-        <span class="tip">Vitória Seca: Santos</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Cruzeiro">
-      <div class="match-info">
-        <span class="teams">Cruzeiro vence Fortaleza</span>
-        <span class="tip">Vitória Seca: Cruzeiro</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Coritiba">
-      <div class="match-info">
-        <span class="teams">Coritiba vence Cuiabá</span>
-        <span class="tip">Vitória Seca: Coritiba</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="América-MG">
-      <div class="match-info">
-        <span class="teams">América-MG vence Atlético-GO</span>
-        <span class="tip">Vitória Seca: América-MG</span>
-      </div>
-    </div>
-    </div><div id="tab4" class="tab">
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Flamengo">
-      <div class="match-info">
-        <span class="teams">Flamengo 2-1 Palmeiras</span>
-        <span class="tip">Palpite exato: 2-1</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Corinthians">
-      <div class="match-info">
-        <span class="teams">Corinthians 1-2 Atlético-MG</span>
-        <span class="tip">Palpite exato: 1-2</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Grêmio">
-      <div class="match-info">
-        <span class="teams">Grêmio 2-0 Bahia</span>
-        <span class="tip">Palpite exato: 2-0</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Bragantino">
-      <div class="match-info">
-        <span class="teams">Bragantino 2-1 Juventude</span>
-        <span class="tip">Palpite exato: 2-1</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Santos">
-      <div class="match-info">
-        <span class="teams">Santos 1-1 Vasco</span>
-        <span class="tip">Palpite exato: 1-1</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Palmeiras">
-      <div class="match-info">
-        <span class="teams">Palmeiras 3-2 São Paulo</span>
-        <span class="tip">Palpite exato: 3-2</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Cruzeiro">
-      <div class="match-info">
-        <span class="teams">Cruzeiro 2-1 Fortaleza</span>
-        <span class="tip">Palpite exato: 2-1</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Coritiba">
-      <div class="match-info">
-        <span class="teams">Coritiba 1-0 Cuiabá</span>
-        <span class="tip">Palpite exato: 1-0</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="América-MG">
-      <div class="match-info">
-        <span class="teams">América-MG 2-1 Atlético-GO</span>
-        <span class="tip">Palpite exato: 2-1</span>
-      </div>
-    </div>
-    
-    <div class="match-card">
-      <img class="team-logo" src="https://via.placeholder.com/40" alt="Fluminense">
-      <div class="match-info">
-        <span class="teams">Fluminense 1-1 Botafogo</span>
-        <span class="tip">Palpite exato: 1-1</span>
-      </div>
-    </div>
-    
-</div>
+  <!-- TAB Ambas Marcam -->
+  <div id="tab2" class="tab tab2">
+    <!-- Adicione seus 10 jogos Ambas Marcam aqui -->
+  </div>
+
+  <!-- TAB Vitória Seca -->
+  <div id="tab3" class="tab tab3">
+    <!-- Adicione seus 10 jogos Vitória Seca aqui -->
+  </div>
+
+  <!-- TAB Placar Exato -->
+  <div id="tab4" class="tab tab4">
+    <!-- Adicione seus 10 jogos Placar Exato aqui -->
+  </div>
 </div>
 
 <script>
 function login(){
-const user=document.getElementById('username').value;
-const pass=document.getElementById('password').value;
-const error=document.getElementById('error-msg');
-if(user==="kawan" && pass==="1234"){
-document.getElementById('login-container').style.display="none";
-document.getElementById('app-container').style.display="block";
-}else{error.textContent="Usuário ou senha incorretos!";}
+  const user=document.getElementById('username').value;
+  const pass=document.getElementById('password').value;
+  const error=document.getElementById('error-msg');
+  if(user==="kawan" && pass==="1234"){
+    document.getElementById('login-container').style.display="none";
+    document.getElementById('app-container').style.display="block";
+  }else{error.textContent="Usuário ou senha incorretos!";}
 }
 const tabs=["tab1","tab2","tab3","tab4"];
-tabs.forEach((t,i)=>{document.getElementById(`tab${i+1}-btn`).addEventListener("click",()=>{tabs.forEach((u,j)=>{document.getElementById(`tab${j+1}-btn`).classList.remove("active");document.getElementById(u).classList.remove("active");});document.getElementById(`tab${i+1}-btn`).classList.add("active");document.getElementById(t).classList.add("active");});});
+tabs.forEach((t,i)=>{
+  document.getElementById(`tab${i+1}-btn`).addEventListener("click",()=>{
+    tabs.forEach((u,j)=>{
+      document.getElementById(`tab${j+1}-btn`).classList.remove("active");
+      document.getElementById(u).classList.remove("active");
+    });
+    document.getElementById(`tab${i+1}-btn`).classList.add("active");
+    document.getElementById(t).classList.add("active");
+  });
+});
 </script>
 
 </body>
