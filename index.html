@@ -2,18 +2,11 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Palpites Futebol — App Profissional</title>
+<title>Palpites Futebol — App Premium</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <style>
 body {margin:0; font-family:'Roboto',sans-serif; background:#121212; color:#fff;}
-/* Login */
-#login-container{display:flex; justify-content:center; align-items:center; height:100vh;}
-#login-box{background-color:#222; padding:40px 30px; border-radius:15px; width:90%; max-width:400px; box-shadow:0 0 20px rgba(0,255,0,0.3); text-align:center;}
-#login-box h2{margin-bottom:20px; color:#4caf50;}
-input{width:80%; padding:12px; margin:10px 0; border-radius:8px; border:none; font-size:16px;}
-button{padding:12px 25px; margin-top:10px; border:none; border-radius:8px; background-color:#4caf50; color:#fff; font-size:16px; cursor:pointer;}
-.error{color:#ff5555; margin-top:10px;}
-/* App */
 #app-container{display:none; padding-bottom:50px;}
 header{padding:20px; text-align:center; font-size:26px; background-color:#111; box-shadow:0 2px 5px #000;}
 nav{display:flex; justify-content: space-around; background:#111; position: sticky; top:0; z-index:10;}
@@ -27,66 +20,138 @@ nav button.active{color:#4caf50; border-bottom:3px solid #4caf50;}
 .match-info{flex:1;}
 .teams{font-size:18px; font-weight:bold;}
 .tip{margin-top:4px;}
-/* Gradientes por tipo de aposta */
 .tab1 .match-card{background:linear-gradient(90deg,#4caf50,#2e7d32);}
 .tab2 .match-card{background:linear-gradient(90deg,#2196f3,#1565c0);}
 .tab3 .match-card{background:linear-gradient(90deg,#f44336,#b71c1c);}
 .tab4 .match-card{background:linear-gradient(90deg,#ffeb3b,#fbc02d); color:#000;}
+.premium{border:2px dashed gold; padding:10px;}
+#btn-login,#btn-logout,#btn-subscribe{padding:12px 25px; border:none; border-radius:8px; background:#4caf50; color:#fff; cursor:pointer; font-size:16px; margin:10px;}
+#btn-logout{background:#f44336;}
 @media(max-width:600px){.teams{font-size:16px;} nav button{font-size:14px; padding:10px;}}
 </style>
 </head>
 <body>
 
-<div id="login-container">
-  <div id="login-box">
-    <h2>Login</h2>
-    <input type="text" id="username" placeholder="Usuário"><br>
-    <input type="password" id="password" placeholder="Senha"><br>
-    <button onclick="login()">Entrar</button>
-    <p class="error" id="error-msg"></p>
-  </div>
+<div id="login-container" style="text-align:center; padding-top:100px;">
+  <h2>Login / Assinar</h2>
+  <button id="btn-login">Entrar com Netlify</button>
 </div>
 
 <div id="app-container">
-  <header>Palpites Futebol — App Profissional</header>
-  <nav>
-    <button id="tab1-btn" class="active">+1.5 Gols</button>
-    <button id="tab2-btn">Ambas Marcam</button>
-    <button id="tab3-btn">Vitória Seca</button>
-    <button id="tab4-btn">Placar Exato</button>
-  </nav>
+<header>Palpites Futebol — App Premium</header>
+<div style="text-align:center;">
+  <button id="btn-logout">Sair</button>
+  <button id="btn-subscribe">Assinar Premium</button>
+</div>
+<nav>
+<button id="tab1-btn" class="active">+1.5 Gols</button>
+<button id="tab2-btn">Ambas Marcam</button>
+<button id="tab3-btn">Vitória Seca</button>
+<button id="tab4-btn">Placar Exato</button>
+</nav>
 
-  <!-- TAB +1.5 Gols -->
-  <div id="tab1" class="tab tab1 active">
-    <!-- Adicione seus 10 jogos +1.5 gols aqui -->
+<div id="tab1" class="tab tab1 active">
+  <div class="match-card">
+    <img class="team-logo" src="https://via.placeholder.com/40" alt="Corinthians">
+    <div class="match-info">
+      <span class="teams">Corinthians vs Atlético-MG</span>
+      <span class="tip">Palpite: Over 1.5 gols</span>
+    </div>
   </div>
-
-  <!-- TAB Ambas Marcam -->
-  <div id="tab2" class="tab tab2">
-    <!-- Adicione seus 10 jogos Ambas Marcam aqui -->
-  </div>
-
-  <!-- TAB Vitória Seca -->
-  <div id="tab3" class="tab tab3">
-    <!-- Adicione seus 10 jogos Vitória Seca aqui -->
-  </div>
-
-  <!-- TAB Placar Exato -->
-  <div id="tab4" class="tab tab4">
-    <!-- Adicione seus 10 jogos Placar Exato aqui -->
+  <div class="match-card premium">
+    <img class="team-logo" src="https://via.placeholder.com/40" alt="Flamengo">
+    <div class="match-info">
+      <span class="teams">Flamengo vs Palmeiras</span>
+      <span class="tip">Palpite: Over 1.5 gols (Premium)</span>
+    </div>
   </div>
 </div>
 
+<div id="tab2" class="tab tab2">
+  <div class="match-card">
+    <img class="team-logo" src="https://via.placeholder.com/40" alt="Vasco">
+    <div class="match-info">
+      <span class="teams">Fluminense vs Vasco</span>
+      <span class="tip">Ambas Marcam</span>
+    </div>
+  </div>
+  <div class="match-card premium">
+    <img class="team-logo" src="https://via.placeholder.com/40" alt="Botafogo">
+    <div class="match-info">
+      <span class="teams">Botafogo vs Ceará</span>
+      <span class="tip">Ambas Marcam (Premium)</span>
+    </div>
+  </div>
+</div>
+
+<div id="tab3" class="tab tab3">
+  <div class="match-card">
+    <img class="team-logo" src="https://via.placeholder.com/40" alt="Palmeiras">
+    <div class="match-info">
+      <span class="teams">Palmeiras vence Flamengo</span>
+      <span class="tip">Vitória Seca</span>
+    </div>
+  </div>
+  <div class="match-card premium">
+    <img class="team-logo" src="https://via.placeholder.com/40" alt="Grêmio">
+    <div class="match-info">
+      <span class="teams">Grêmio vence Bahia</span>
+      <span class="tip">Vitória Seca (Premium)</span>
+    </div>
+  </div>
+</div>
+
+<div id="tab4" class="tab tab4">
+  <div class="match-card">
+    <img class="team-logo" src="https://via.placeholder.com/40" alt="Cruzeiro">
+    <div class="match-info">
+      <span class="teams">Cruzeiro 2-1 Fortaleza</span>
+      <span class="tip">Palpite exato</span>
+    </div>
+  </div>
+  <div class="match-card premium">
+    <img class="team-logo" src="https://via.placeholder.com/40" alt="Santos">
+    <div class="match-info">
+      <span class="teams">Santos 3-2 Vasco</span>
+      <span class="tip">Palpite exato (Premium)</span>
+    </div>
+  </div>
+</div>
+
+</div>
+
 <script>
-function login(){
-  const user=document.getElementById('username').value;
-  const pass=document.getElementById('password').value;
-  const error=document.getElementById('error-msg');
-  if(user==="kawan" && pass==="1234"){
-    document.getElementById('login-container').style.display="none";
-    document.getElementById('app-container').style.display="block";
-  }else{error.textContent="Usuário ou senha incorretos!";}
+// Inicializar Netlify Identity
+if(window.netlifyIdentity){
+  window.netlifyIdentity.init();
+  window.netlifyIdentity.on('login', user=>{
+    window.netlifyIdentity.close();
+    showApp(true);
+  });
+  window.netlifyIdentity.on('logout', ()=>{
+    showApp(false);
+  });
 }
+
+function showApp(isLogged){
+  document.getElementById('login-container').style.display = isLogged ? 'none' : 'block';
+  document.getElementById('app-container').style.display = isLogged ? 'block' : 'none';
+  // ocultar premium inicialmente
+  document.querySelectorAll(".premium").forEach(el=>el.style.display = isLogged && isPremium ? "block" : "none");
+}
+
+document.getElementById('btn-login').addEventListener('click', ()=>{ window.netlifyIdentity.open(); });
+document.getElementById('btn-logout').addEventListener('click', ()=>{ window.netlifyIdentity.logout(); });
+
+// Assinatura simulada
+let isPremium = false;
+document.getElementById('btn-subscribe').addEventListener('click', ()=>{
+  isPremium = true;
+  document.querySelectorAll(".premium").forEach(el=>el.style.display = "block");
+  alert("Você agora é um assinante Premium! Conteúdo desbloqueado.");
+});
+
+// abas
 const tabs=["tab1","tab2","tab3","tab4"];
 tabs.forEach((t,i)=>{
   document.getElementById(`tab${i+1}-btn`).addEventListener("click",()=>{
