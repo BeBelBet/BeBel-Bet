@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Palpites Futebol Interativo — Tema Escuro</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    header {
+      background-color: #1f1f1f;
+      padding: 16px;
+      text-align: center;
+      font-size: 24px;
+      color: #ffffff;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+      background-color: #1f1f1f;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: #bbb;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    nav button.active {
+      color: #fff;
+      border-bottom: 2px solid #4caf50;
+    }
+    .tab {
+      display: none;
+      padding: 16px;
+    }
+    .tab.active {
+      display: block;
+    }
+    .tab h2 {
+      margin-top: 0;
+      color: #4caf50;
+    }
+    .match {
+      border-bottom: 1px solid #333;
+      padding: 8px 0;
+    }
+    .match span {
+      display: block;
+    }
+    .match .teams {
+      font-size: 18px;
+      color: #fff;
+    }
+    .match .tip {
+      color: #a0a0a0;
+    }
+  </style>
+</head>
+<body>
+  <header>Palpites Futebol — Tema Escuro</header>
+  <nav>
+    <button id="tab1-btn" class="active">+1.5 Gols</button>
+    <button id="tab2-btn">Ambas Marcam</button>
+    <button id="tab3-btn">Vitória Seca</button>
+    <button id="tab4-btn">Placar Exato</button>
+  </nav>
+
+  <div id="tab1" class="tab active">
+    <h2>+1.5 Gols</h2>
+    <div class="match"><span class="teams">Corinthians vs Atlético-MG</span><span class="tip">Palpite: Over 1.5 gols</span></div>
+    <div class="match"><span class="teams">Flamengo vs Palmeiras</span><span class="tip">Palpite: Over 1.5 gols</span></div>
+    <div class="match"><span class="teams">Cruzeiro vs Fortaleza</span><span class="tip">Palpite: Over 1.5 gols</span></div>
+    <div class="match"><span class="teams">Bahia vs Grêmio</span><span class="tip">Palpite: Over 1.5 gols</span></div>
+    <div class="match"><span class="teams">Juventude vs Bragantino</span><span class="tip">Palpite: Over 1.5 gols</span></div>
+    <div class="match"><span class="teams">Santos vs Vitória</span><span class="tip">Palpite: Over 1.5 gols</span></div>
+  </div>
+
+  <div id="tab2" class="tab">
+    <h2>Ambas Marcam (BTTS)</h2>
+    <div class="match"><span class="teams">Fluminense vs Vasco</span><span class="tip">Sim – ambas marcam</span></div>
+    <div class="match"><span class="teams">Ceará vs Botafogo</span><span class="tip">Sim – ambas marcam</span></div>
+    <div class="match"><span class="teams">Corinthians vs Atlético-MG</span><span class="tip">Sim – ambas marcam</span></div>
+    <div class="match"><span class="teams">Flamengo vs Palmeiras</span><span class="tip">Sim – ambas marcam</span></div>
+    <div class="match"><span class="teams">Juventude vs Bragantino</span><span class="tip">Sim – ambas marcam</span></div>
+  </div>
+
+  <div id="tab3" class="tab">
+    <h2>Vitória Seca</h2>
+    <div class="match"><span class="teams">Grêmio vence Bahia</span><span class="tip">Vitória Seca: Grêmio</span></div>
+    <div class="match"><span class="teams">Palmeiras vence Flamengo</span><span class="tip">Vitória Seca: Palmeiras</span></div>
+    <div class="match"><span class="teams">Atlético-MG vence Corinthians</span><span class="tip">Vitória Seca: Atlético-MG</span></div>
+    <div class="match"><span class="teams">São Paulo vence Mirassol</span><span class="tip">Vitória Seca: São Paulo</span></div>
+    <div class="match"><span class="teams">Bragantino vence Juventude</span><span class="tip">Vitória Seca: Bragantino</span></div>
+  </div>
+
+  <div id="tab4" class="tab">
+    <h2>Placar Exato</h2>
+    <div class="match"><span class="teams">Flamengo 2‑1 Palmeiras</span><span class="tip">Palpite exato: 2‑1</span></div>
+    <div class="match"><span class="teams">Corinthians 1‑2 Atlético-MG</span><span class="tip">Palpite exato: 1‑2</span></div>
+    <div class="match"><span class="teams">Grêmio 2‑0 Bahia</span><span class="tip">Palpite exato: 2‑0</span></div>
+    <div class="match"><span class="teams">Bragantino 2‑1 Juventude</span><span class="tip">Palpite exato: 2‑1</span></div>
+    <div class="match"><span class="teams">Vitória 1‑1 Santos</span><span class="tip">Palpite exato: 1‑1</span></div>
+  </div>
+
+  <script>
+    const tabs = ["tab1", "tab2", "tab3", "tab4"];
+    tabs.forEach((t, i) => {
+      document.getElementById(`tab${i+1}-btn`).addEventListener("click", () => {
+        tabs.forEach((u, j) => {
+          document.getElementById(`tab${j+1}-btn`).classList.remove("active");
+          document.getElementById(u).classList.remove("active");
+        });
+        document.getElementById(`tab${i+1}-btn`).classList.add("active");
+        document.getElementById(t).classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
